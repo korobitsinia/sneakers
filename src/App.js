@@ -3,6 +3,21 @@ import React from "react";
 function App() {
     return (
         <div className="App clear">
+            <div className="overlay">
+                <div className="drawer">
+                    <h2> Корзина </h2>
+
+                    <div className="cartItem">
+                        <img src={'/img/sneakers/1.jpg'} alt={"Sneakers"}/>
+                        <div>
+                            <p>Мужские Кроссовки Nike Blazer Mid Suede</p>
+                            <b>12 999</b>
+                        </div>
+                        <img src={"/img/btn-remove.svg"} alt={"Remove"}/>
+                    </div>
+                </div>
+            </div>
+
             <header className={"d-flex justify-between align-center p-40 header"}>
                 <div className={"d-flex align-center"}>
                     <img width={40} height={40} src="/img/logo.png"/>
@@ -33,6 +48,9 @@ function App() {
                 </div>
                 <div className="d-flex flex-wrap justify-between sneakers">
                     <div className="card">
+                        <div className={"favorite"}>
+                            <img src={"/img/heart-unlike.svg"} alt={"unliked"}/>
+                        </div>
                         <img width={133} height={112} src={"/img/sneakers/1.jpg"} alt={"sneakers"}/>
                         <h5>Мужские Кроссовки Nike Blazer Mid Suede</h5>
                         <div className={"d-flex justify-between align-center"}>

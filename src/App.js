@@ -40,6 +40,12 @@ function App() {
     }
 
     const onAddToCart = (obj) => {
+        let v = cartItems.find((e) => e.title == obj.title)
+        if (v) {
+            return
+        }
+
+
         setCartItems((value) => ([...value, obj]))
     }
 

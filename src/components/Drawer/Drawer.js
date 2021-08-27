@@ -1,23 +1,26 @@
 import React from "react";
 
-const Drawer = () => {
+const Drawer = ({onClose, items = []}) => {
     return (
-        <div className="overlay" style={{display: 'none'}}>
+        <div className="overlay">
             <div className="drawer">
                 <h2 className={"mb-30 d-flex justify-between"}> Корзина
-                    <img className={"removeBtn"} src={"/img/btn-remove.svg"} alt={"Remove"}/>
+                    <img className={"removeBtn"} src={"/img/btn-remove.svg"} alt={"Remove"} onClick={onClose}/>
                 </h2>
-
                 <div className="items">
-                    <div className="cartItem d-flex align-center mb-20">
-                        <div style={{backgroundImage: 'url(/img/sneakers/1.jpg)'}} className="cartItemImg"></div>
-                        {/*<img className={"mr-20"} width={70} height={70} src={'/img/sneakers/1.jpg'} alt={"Sneakers"}/>*/}
-                        <div className={"mr-20 flex"}>
-                            <p className={"mb-5"}>Мужские Кроссовки Nike Blazer Mid Suede</p>
-                            <b>12 999</b>
+                    {items.map((i) => (
+                        <div className="cartItem d-flex align-center mb-20">
+                            {/*<div style={{backgroundImage: `url(/img/sneakers/1.jpg)`}} className="cartItemImg"></div>*/}
+                            <div style={{backgroundImage: `url(${i.imageUrl})`}} className="cartItemImg"></div>
+
+                            {/*<img className={"mr-20"} width={70} height={70} src={'/img/sneakers/1.jpg'} alt={"Sneakers"}/>*/}
+                            <div className={"mr-20 flex"}>
+                                <p className={"mb-5"}>{i.title}</p>
+                                <b>{i.price} руб.</b>
+                            </div>
+                            <img className={"removeBtn"} src={"/img/btn-remove.svg"} alt={"Remove"}/>
                         </div>
-                        <img className={"removeBtn"} src={"/img/btn-remove.svg"} alt={"Remove"}/>
-                    </div>
+                    ))}
                 </div>
 
                 <div className="cartTotalBlock">

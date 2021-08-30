@@ -12,12 +12,12 @@ const Drawer = ({onClose, items = [], onDeleteFromCart}) => {
                     // ITEMS IN CART
                     (<>
                         <div className="items">
-                            {items.map(({id, title, price, imageUrl}, idx) => (
+                            {items.map(({id, name, price, imageUrl}, idx) => (
                                 <div className="cartItem d-flex align-center mb-20" key={idx}>
                                     <div style={{backgroundImage: `url(${imageUrl})`}}
-                                         className="cartItemImg"> </div>
+                                         className="cartItemImg"></div>
                                     <div className={"mr-20 flex"}>
-                                        <p className={"mb-5"}>{title}</p>
+                                        <p className={"mb-5"}>{name}</p>
                                         <b>{price} руб.</b>
                                     </div>
                                     <img className={"removeBtn"} src={"/img/btn-remove.svg"} alt={"Remove"}
@@ -29,11 +29,11 @@ const Drawer = ({onClose, items = [], onDeleteFromCart}) => {
                             <ul>
                                 <li>
                                     <span>Итого:</span>
-                                    <div> </div>
+                                    <div></div>
                                     <b>21 498 руб.</b>
                                 </li>
                                 <li><span>Налог 5%</span>
-                                    <div> </div>
+                                    <div></div>
                                     <b>1 000 руб.</b>
                                 </li>
                             </ul>
@@ -48,7 +48,9 @@ const Drawer = ({onClose, items = [], onDeleteFromCart}) => {
                         <img className="mb-20" width="120px" src="/img/empty.png" alt="Empty"/>
                         <h2>Корзина пуста</h2>
                         <p className="opacity-6">Добавьте хотя бы одну пару кросовок</p>
-                        <button className="greenButton">
+                        <button className="greenButton"
+                                onClick={onClose}
+                        >
                             <img src="img/arrow.svg" alt="Arrow"/>
                             Вернуться назад
                         </button>
